@@ -1,0 +1,41 @@
+$divider: rgba(0,0,0,.12);
+
+.tool-list {
+    .item {
+        padding: 8px 0;
+        border-bottom: 1px solid $divider;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover {
+            background-color: #f9f9f9;
+        }
+    }
+    .img-box {
+        float: left;
+        width: 100px;
+        height: 80px;
+        margin-right: 16px;
+        overflow: hidden;
+        border: 1px solid $divider;
+        .img {
+            width: 100%;
+        }
+    }
+    .title {
+        margin-bottom: 16px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+    .desc {
+        color: #666;
+    }
+}
+.detail-box {
+    .image {
+        max-width: 300px;
+    }
+    .btns {
+        margin-bottom: 16px;
+    }
+}
