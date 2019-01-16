@@ -1,5 +1,13 @@
 $divider: rgba(0,0,0,.12);
 
+.ui-page-body {
+    -webkit-overflow-scrolling : touch;
+}
+input,
+textarea {
+  -webkit-appearance: none;
+}
+
 .tool-list {
     .item {
         padding: 8px 0;
