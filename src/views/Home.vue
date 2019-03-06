@@ -10,7 +10,7 @@
             return {
                 groups: [
                     {
-                        // name: '分类',
+                        name: '常用',
                         apps: [
                             {
                                 name: '恶搞图片',
@@ -70,6 +70,28 @@
                                 icon: '/static/img/fun.svg',
                                 to: 'xxx',
                                 href: 'https://demo2.yunser.com/code_rain/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '欣欣可爱',
+                                desc: '“欣欣可爱”生成器',
+                                icon: '/static/img/fun.svg',
+                                to: '/xinxin'
+                            },
+                            {
+                                name: '我们是谁',
+                                desc: '',
+                                icon: '/static/img/fun.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/fun/who/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '我想对你说',
+                                desc: '',
+                                icon: '/static/img/fun.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/fun/say/#/generate',
                                 target: '_blank'
                             }
                         ]
