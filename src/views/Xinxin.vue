@@ -1,20 +1,22 @@
 <template>
     <my-page class="page-weibo" title="“欣欣可爱”生成器" :page="page">
-        <div class="container" id="container">
-            <div class="rel" id="editor">
-                <img class="source" src="/static/template.jpg" alt="" ref="source">
-                <div class="text" v-html="htmlfiy(a1)">
+        <div class="common-container">
+            <div class="container" id="container">
+                <div class="rel" id="editor">
+                    <img class="source" src="/static/template.jpg" alt="" ref="source">
+                    <div class="text" v-html="htmlfiy(a1)">
+                    </div>
                 </div>
+                <ui-text-field v-model="a1" multiLine :rows="3" :rowsMax="6" label="文字" />
+                    
+                <div class="btns">
+                    <ui-raised-button label="生成" primary @click="make" />
+                </div>
+                <!-- <textarea type="text" class="" v-model="a1"></textarea>
+                <button class="reset" @click="resetDialog">重置</button>
+                <button class="generate" @click="make">↓ 生成 ↓</button> -->
+                <img class="result" :src="result" v-if="result">
             </div>
-            <ui-text-field v-model="a1" multiLine :rows="3" :rowsMax="6" label="文字" />
-                
-            <div class="btns">
-                <ui-raised-button label="生成" primary @click="make" />
-            </div>
-            <!-- <textarea type="text" class="" v-model="a1"></textarea>
-            <button class="reset" @click="resetDialog">重置</button>
-            <button class="generate" @click="make">↓ 生成 ↓</button> -->
-            <img class="result" :src="result" v-if="result">
         </div>
     </my-page>
 </template>
@@ -91,12 +93,12 @@
     // min-width: 100%;
 }
 .container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding: 16px;
-    overflow: scroll;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    // padding: 16px;
+    // overflow: scroll;
 }
 </style>

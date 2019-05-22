@@ -1,6 +1,8 @@
 <template>
     <my-page title="娱乐" :page="page">
-        <app-list :data="groups" />
+        <div class="common-container container">
+            <app-list :data="groups" />
+        </div>
     </my-page>
 </template>
 
@@ -92,6 +94,14 @@
                                 icon: '/static/img/fun.svg',
                                 to: 'xxx',
                                 href: 'https://demo2.yunser.com/fun/say/#/generate',
+                                target: '_blank'
+                            },
+                            {
+                                name: '鹿头像生成',
+                                desc: '',
+                                icon: '/static/img/deer.svg',
+                                to: 'xxx',
+                                href: 'https://deer.yunser.com',
                                 target: '_blank'
                             }
                         ]

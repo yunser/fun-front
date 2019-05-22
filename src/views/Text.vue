@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="text-box">
-            <div class="text">{{ text }}</div>
+            <div class="common-container container">
+                <div class="text">{{ text }}</div>
+            </div>
         </div>
     </div>
 </template>

@@ -1,71 +1,77 @@
 <template>
     <my-page class="page-weibo" title="微博生成工具" :page="page">
-        <div id="container" class="container">
-            <div class="user-box" contenteditable="true">
-                <div class="header">
-                    <img class="avatar" :src="avatar">
-                    <div class="info">
-                        <div class="info-header">
-                            <span class="name">{{ name }}</span>
-                            <i class="icon_approve_gold" v-if="person"></i>
-                            <i class="daren" v-if="club"></i>
-                            <i :class="['icon_member', 'icon_member' + vip]" v-if="vip"></i>
+        <div class="no-support">
+            暂不支持移动设备，请在大屏设备上使用
+        </div>
+        <div class="common-container">
+            <div id="container" class="container">
+                <div class="user-box" contenteditable="true">
+                    <div class="header">
+                        <img class="avatar" :src="avatar">
+                        <div class="info">
+                            <div class="info-header">
+                                <span class="name">{{ name }}</span>
+                                <i class="icon_approve_gold" v-if="person"></i>
+                                <i class="daren" v-if="club"></i>
+                                <i :class="['icon_member', 'icon_member' + vip]" v-if="vip"></i>
+                            </div>
+                            <div class="line2">{{ date }} 来自 iPhone X</div>
+                            <div class="content">{{ text }}​​​​</div>
                         </div>
-                        <div class="line2">{{ date }} 来自 iPhone X</div>
-                        <div class="content">{{ text }}​​​​</div>
                     </div>
+                    <div class="footer">
+                        <div class="btn">
+                            <em class="W_ficon ficon_favorite S_ficon">û</em>
+                            <span class="text">收藏</span>
+                        </div>
+                        <div class="btn">
+                            <em class="W_ficon ficon_forward S_ficon"></em>
+                            <span class="text">31553</span>
+                        </div>
+                        <div class="btn">
+                            <em class="W_ficon ficon_repeat S_ficon"></em>
+                            <span class="text">121355</span>
+                        </div>
+                        <div class="btn">
+                            <em class="W_ficon ficon_praised S_txt2">ñ</em>
+                            <span class="text">243291</span>
+                        </div>
+                    </div>
+                    <i class="W_ficon ficon_arrow_down S_ficon">c</i>
                 </div>
-                <div class="footer">
-                    <div class="btn">
-                        <em class="W_ficon ficon_favorite S_ficon">û</em>
-                        <span class="text">收藏</span>
-                    </div>
-                    <div class="btn">
-                        <em class="W_ficon ficon_forward S_ficon"></em>
-                        <span class="text">31553</span>
-                    </div>
-                    <div class="btn">
-                        <em class="W_ficon ficon_repeat S_ficon"></em>
-                        <span class="text">121355</span>
-                    </div>
-                    <div class="btn">
-                        <em class="W_ficon ficon_praised S_txt2">ñ</em>
-                        <span class="text">243291</span>
-                    </div>
-                </div>
-                <i class="W_ficon ficon_arrow_down S_ficon">c</i>
             </div>
+            <div class="btns">
+                <ui-raised-button label="生成图片" primary @click="makeImage" />
+            </div>
+            <div v-if="dataUrl">
+                <div class="tip">若生成的图片效果不好，请手动截图</div>
+                <img :src="dataUrl">
+            </div>
+            <br>
+            <ui-select-field v-model="template" label="模板">
+                <ui-menu-item value="1" title="王思聪"/>
+                <ui-menu-item value="2" title="苍井空"/>
+                <ui-menu-item value="3" title="尤小右"/>
+            </ui-select-field>
+            <br>
+            <ui-select-field v-model="vip" label="微博会员">
+                <ui-menu-item :value="false" title="无"/>
+                <ui-menu-item :value="1" title="vip1"/>
+                <ui-menu-item :value="2" title="vip2"/>
+                <ui-menu-item :value="3" title="vip3"/>
+                <ui-menu-item :value="4" title="vip4"/>
+                <ui-menu-item :value="5" title="vip5"/>
+                <ui-menu-item :value="6" title="vip6"/>
+                <ui-menu-item :value="7" title="vip7"/>
+            </ui-select-field>
+            <br>
+            <ui-checkbox class="checkbox" v-model="club" label="微博达人" /> <br/>
+            <ui-checkbox class="checkbox" v-model="person" label="个人认证" /> <br/>
+            <br>
+            <ui-text-field v-model="avatar" label="头像地址" />
+            <br>
         </div>
-        <br>
-        <ui-select-field v-model="template" label="模板">
-            <ui-menu-item value="1" title="王思聪"/>
-            <ui-menu-item value="2" title="苍井空"/>
-            <ui-menu-item value="3" title="尤小右"/>
-        </ui-select-field>
-        <br>
-        <ui-select-field v-model="vip" label="微博会员">
-            <ui-menu-item :value="false" title="无"/>
-            <ui-menu-item :value="1" title="vip1"/>
-            <ui-menu-item :value="2" title="vip2"/>
-            <ui-menu-item :value="3" title="vip3"/>
-            <ui-menu-item :value="4" title="vip4"/>
-            <ui-menu-item :value="5" title="vip5"/>
-            <ui-menu-item :value="6" title="vip6"/>
-            <ui-menu-item :value="7" title="vip7"/>
-        </ui-select-field>
-        <br>
-        <ui-checkbox class="checkbox" v-model="club" label="微博达人" /> <br/>
-        <ui-checkbox class="checkbox" v-model="person" label="个人认证" /> <br/>
-        <br>
-        <ui-text-field v-model="avatar" label="头像地址" />
-        <br>
-        <div class="btns">
-            <ui-raised-button label="生成图片" primary @click="makeImage" />
-        </div>
-        <div v-if="dataUrl">
-            <div class="tip">若生成的图片效果不好，请手动截图</div>
-            <img :src="dataUrl">
-        </div>
+
     </my-page>
 </template>
 
@@ -89,11 +95,13 @@
                 person: false,
                 page: {
                     menu: [
-                        // {
-                        //     type: 'icon',
-                        //     icon: 'help',
-                        //     to: '/help'
-                        // }
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/4c14b8f056fa11e9973aa373f4f636b0',
+                            target: '_blank',
+                            title: '帮助'
+                        }
                     ]
                 }
             }
@@ -157,6 +165,25 @@
     src: url("/static/font/wbficon.eot?id=165420180711") \9;
     font-weight: normal;
     font-style: normal;
+}
+.no-support {
+    display: none;
+}
+@media all and (max-width: 700px) {
+    .no-support {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        text-align: center;
+        background-color: #fff;
+    }
 }
 .W_ficon {
     font-family: "wbficonregular" !important;
