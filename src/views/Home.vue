@@ -12,6 +12,27 @@
             return {
                 groups: [
                     {
+                        name: '测试',
+                        apps: [
+                            {
+                                name: '反应速度测试',
+                                desc: '',
+                                icon: 'https://life.yunser.com/static/img/reflex.svg',
+                                to: 'xxx',
+                                href: 'https://life.yunser.com/reflex',
+                                target: '_blank'
+                            },
+                            {
+                                name: '舒尔特方格',
+                                desc: '',
+                                icon: 'https://life.yunser.com/static/img/grid.svg',
+                                to: 'xxx',
+                                href: 'https://life.yunser.com/schulte_grid',
+                                target: '_blank'
+                            }
+                        ]
+                    },
+                    {
                         name: '常用',
                         apps: [
                             {
@@ -104,6 +125,19 @@
                                 href: 'https://deer.yunser.com',
                                 target: '_blank'
                             }
+                        ]
+                    },
+                    {
+                        name: '其他',
+                        apps: [
+                            {
+                                name: '指尖轮盘',
+                                desc: '开发中...',
+                                icon: '/static/img/fun.svg',
+                                to: 'xxx',
+                                href: 'https://life.yunser.com/who',
+                                target: '_blank'
+                            },
                         ]
                     }
                 ],
